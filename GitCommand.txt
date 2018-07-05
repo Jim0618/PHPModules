@@ -94,4 +94,21 @@ git branch
 合并分支：
 git merge <branch>
 
+删除分支：
+git branch -d <branch>
+
+查看该文件在不同分支的情况：
+cat <file>
+
+合并分支产生冲突：
+1.查看是哪些文件有冲突：git status
+2.查看冲突文件并修改：cat <file>
+3.在master分支上做提交
+
+查看分支合并提交历史：
+git log --graph --pretty=oneline --abbrev-commit
+(用git log --graph命令可以看到分支合并图)
+
+
+
 
