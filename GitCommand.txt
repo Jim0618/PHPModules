@@ -109,6 +109,109 @@ cat <file>
 git log --graph --pretty=oneline --abbrev-commit
 (用git log --graph命令可以看到分支合并图)
 
+禁用fast forward模式：
+git merge --no-ff -m <message> <branch>
+(合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。)
 
+把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+(适用于突然临时要改bug，就把手头上的工作先储存起来)
+git stash
 
+恢复stash内容：
+1）git stash apply (stash并不删除，需要用git stash drop 删除)
+2）git stash pop (恢复的同时将stash内容删除了)
+3）git stash list
+   git stash apply stash@{<num>} (恢复指定的stash)
+
+要丢弃一个没有被合并过的分支(强制)：
+git branch -D <branch>
+
+查看远程库信息：
+git remote [-v]
+
+推送分支：
+git push <remote library name, default 'origin'> <branch>
+（如果推送失败，则远程分支比你的本地更新，需要先用git pull试图合并）
+
+在本地创建和远程分支对应的分支：
+（git clone 只能克隆master分支，如需远程库别的分支下来，则用该指令）
+git checkout -b <local branch name> origin/<remote branch name>
+eg: git checkout -b dev origin/dev
+
+抓取远程库最新提交:
+git pull
+(如失败，则是没有指定本地分支与远程库分支的链接，则：
+git branch --set-upstream-to=origin/dev dev
+建立本地分支和远程分支的关联，然后在pull，
+还有冲突那就手动解决)
+
+将提交历史整理成一条直线：
+git rebase
+(rebase的目的是使得我们在查看历史提交的变化时更容易，
+因为分叉的提交需要三方对比)
+
+(tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起,
+是版本库的快照,但分支能移动，tag不能移动)
+
+创建标签：
+（切换到需要打标签的分支上）
+git tag <tag name, eg: v1.0>
+
+查看所有标签：
+(标签不是按时间顺序列出，而是按字母排序的)
+git tag
+
+直接在commit id 打标签：
+git tag <tag name> <commit id>
+eg: git tag v0.9 f52c633
+
+创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+git tag -a <tag name> -m <message> <commit id>
+eg: git tag -a v0.1 -m "version 0.1 released" 1094adb
+
+查看标签信息：
+git show <tag name>
+(标签总是和某个commit挂钩。如果这个commit既出现在master分支，
+又出现在dev分支，那么在这两个分支上都可以看到这个标签。)
+
+删除标签：
+git tag -d <tag name>
+
+推送某个标签到远程:
+(创建的标签都只存储在本地，不会自动推送到远程)
+git push origin <tagname>
+
+一次性推送全部尚未推送到远程的本地标签：
+git push origin --tags
+
+删除远程标签：
+git push origin :refs/tags/<tag name>
+
+（在Git工作区的根目录下创建一个特殊的.gitignore文件，
+然后把要忽略的文件名填进去，然后提交给git，
+Git就会自动忽略这些文件的提交，.gitignore文件本身要放到版本库里，
+并且可以对.gitignore做版本管理。）
+强制添加文件到Git（忽略.gitignore):
+git add -f <file>
+
+检查.gitignore的哪个规则错了：
+git check-ignore -v <file>
+(检查是.gitignore的哪个规则让该文件提交不上去，即Git
+忽视了该文件)
+
+配置别名：
+eg: git config --global alias.st status (用git st 代替git status)
+(--global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用)
+
+显示最后一次提交信息：
+git log -1 (这是数字1)
+
+删除别名：
+1）找到这个仓库.git里面的config,删除对应的行：
+cd .git 
+vi config
+2）找到用户主目录下的一个隐藏文件.gitconfig，删除
+对应的行
+cd <HOME>
+vi .gitconfig
 
