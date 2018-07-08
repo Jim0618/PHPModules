@@ -1,2 +1,4 @@
 *.lnk
 .idea
+*.py
+
