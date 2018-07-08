@@ -1,7 +1,7 @@
 <?php
 	include_once 'conn/conn.php';
-	require_once 'Zend/Mail.php';						//µ÷ÓÃ·¢ËÍÓÊ¼şµÄÎÄ¼ş
-	require_once 'Zend/Mail/Transport/Smtp.php';		//µ÷ÓÃSMTPÑéÖ¤ÎÄ¼ş
+	require_once 'Zend/Mail.php';						//è°ƒç”¨å‘é€é‚®ä»¶çš„æ–‡ä»¶
+	require_once 'Zend/Mail/Transport/Smtp.php';		//è°ƒç”¨SMTPéªŒè¯æ–‡ä»¶
 	$reback = '0';
 	$name = $_GET['foundname'];
 	$question = $_GET['question'];
@@ -13,36 +13,36 @@
 		$sql = "update tb_member set password = '".md5($rnd)."' where name = '".$name."' and question = '".$question."' and answer = '".$answer."'";
 		$tmpnum = $conne->uidRst($sql);
 		if($tmpnum >= 1){
-			//·¢ËÍÃÜÂëÓÊ¼ş
-			$subject="ÕÒ»ØÃÜÂë";
-			$mailbody='ÃÜÂëÕÒ»Ø³É¹¦¡£ÄúÕÊºÅµÄĞÂÃÜÂëÊÇ'.$rnd;
+			//å‘é€å¯†ç é‚®ä»¶
+			$subject="æ‰¾å›å¯†ç ";
+			$mailbody='å¯†ç æ‰¾å›æˆåŠŸã€‚æ‚¨å¸å·çš„æ–°å¯†ç æ˜¯'.$rnd;
 			//$envelope["from"]="admin@system.mail";
-			$envelope="mrsoft@mrsoft.com";		//ÍøÂç°æ¶¨ÒåµÇÂ¼Ê¹ÓÃµÄÓÊÏä
+			$envelope="mrsoft@mrsoft.com";		//ç½‘ç»œç‰ˆå®šä¹‰ç™»å½•ä½¿ç”¨çš„é‚®ç®±
 			
-			/*  smtp²âÊÔ°æ·¢ËÍÓÊ¼ş·½Ê½£¬Ê¹ÓÃsmtp×÷Îª·şÎñÆ÷*/
+			/*  smtpæµ‹è¯•ç‰ˆå‘é€é‚®ä»¶æ–¹å¼ï¼Œä½¿ç”¨smtpä½œä¸ºæœåŠ¡å™¨*/
 			//	$tr = new Zend_Mail_Transport_Smtp('192.168.1.99');
 				
 			//	$mail = new Zend_Mail();				
-			//	$mail->addTo($email,'»ñÈ¡ÓÃ»§ĞÂÃÜÂë');
-			//	$mail->setFrom('admin@system.mail','Ã÷ÈÕ¿Æ¼¼µäĞÍÄ£¿é³ÌĞò²âÊÔÓÊÏä£¬ĞŞ¸ÄÓÃ»§×¢²áÃÜÂë£¡');
+			//	$mail->addTo($email,'è·å–ç”¨æˆ·æ–°å¯†ç ');
+			//	$mail->setFrom('admin@system.mail','æ˜æ—¥ç§‘æŠ€å…¸å‹æ¨¡å—ç¨‹åºæµ‹è¯•é‚®ç®±ï¼Œä¿®æ”¹ç”¨æˆ·æ³¨å†Œå¯†ç ï¼');
 			//	$mail->setSubject($subject);
 			//	$mail->setBodyHtml($mailbody);
 				//$mail->send($tr);
 
-/*   ÍøÂç°æ·¢ËÍÓÊ¼ş·½·¨  */
+/*   ç½‘ç»œç‰ˆå‘é€é‚®ä»¶æ–¹æ³•  */
 
 	$config = array('auth' => 'login',
             'username' => 'mrsoft@mrsoft.com',
-            'password' => 'mingri');				//¶¨ÒåSMTPµÄÑéÖ¤²ÎÊı
-	$transport = new Zend_Mail_Transport_Smtp('localhost', $config);		//ÊµÀı»¯ÑéÖ¤µÄ¶ÔÏó
-	$mail = new Zend_Mail('GBK');			//ÊµÀı»¯·¢ËÍÓÊ¼ş¶ÔÏó
-    $mail->setBodyHtml($mailbody);				//·¢ËÍÓÊ¼şÖ÷Ìå
-    $mail->setFrom($envelope, 'Ã÷ÈÕ¿Æ¼¼µäĞÍÄ£¿é³ÌĞò²âÊÔÓÊÏä£¬ĞŞ¸ÄÓÃ»§×¢²áÃÜÂë£¡');	//¶¨ÒåÓÊ¼ş·¢ËÍÊ¹ÓÃµÄÓÊÏä
-    $mail->addTo($email, '»ñÈ¡ÓÃ»§ĞÂÃÜÂë');		//¶¨ÒåÓÊ¼şµÄ½ÓÊÕÓÊÏä
-    $mail->setSubject($subject);				//¶¨ÒåÓÊ¼şÖ÷Ìâ
-    $mail->send($transport);								//Ö´ĞĞ·¢ËÍ²Ù×÷
+            'password' => 'mingri');				//å®šä¹‰SMTPçš„éªŒè¯å‚æ•°
+	$transport = new Zend_Mail_Transport_Smtp('localhost', $config);		//å®ä¾‹åŒ–éªŒè¯çš„å¯¹è±¡
+	$mail = new Zend_Mail('GBK');			//å®ä¾‹åŒ–å‘é€é‚®ä»¶å¯¹è±¡
+    $mail->setBodyHtml($mailbody);				//å‘é€é‚®ä»¶ä¸»ä½“
+    $mail->setFrom($envelope, 'æ˜æ—¥ç§‘æŠ€å…¸å‹æ¨¡å—ç¨‹åºæµ‹è¯•é‚®ç®±ï¼Œä¿®æ”¹ç”¨æˆ·æ³¨å†Œå¯†ç ï¼');	//å®šä¹‰é‚®ä»¶å‘é€ä½¿ç”¨çš„é‚®ç®±
+    $mail->addTo($email, 'è·å–ç”¨æˆ·æ–°å¯†ç ');		//å®šä¹‰é‚®ä»¶çš„æ¥æ”¶é‚®ç®±
+    $mail->setSubject($subject);				//å®šä¹‰é‚®ä»¶ä¸»é¢˜
+    $mail->send($transport);								//æ‰§è¡Œå‘é€æ“ä½œ
 	
-/*   ÍøÂç°æ·¢ËÍÓÊ¼ş·½·¨  */	
+/*   ç½‘ç»œç‰ˆå‘é€é‚®ä»¶æ–¹æ³•  */	
 if(false ==$mail->send($tr) ){
 				$reback = '-1';
 			}else{

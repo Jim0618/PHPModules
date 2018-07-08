@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>×¢²á</title>
+<title>æ³¨å†Œ</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script language="javascript" src="js/xmlhttprequest.js"></script>
 <script language="javascript" src="js/register.js"></script>
@@ -10,47 +10,47 @@
 <body>
 <div id="container">
   <div id="rgbgdiv">
-    <div id="regnamediv"><b>×¢²áÃû³Æ£º</b>
+    <div id="regnamediv"><b>æ³¨å†Œåç§°ï¼š</b>
       <input id="regname" name="regname" type="text" />
-      <div id="namediv">ÇëÊäÈëÓÃ»§Ãû</div>
+      <div id="namediv">è¯·è¾“å…¥ç”¨æˆ·å</div>
     </div>
-    <div id="regpwddiv1"><b>×¢²áÃÜÂë£º</b>
+    <div id="regpwddiv1"><b>æ³¨å†Œå¯†ç ï¼š</b>
       <input id="regpwd1" name="regpwd1" type="password" />
-      <div id="pwddiv1">ÇëÊäÈëÃÜÂë</div>
+      <div id="pwddiv1">è¯·è¾“å…¥å¯†ç </div>
     </div>
-    <div id="regpwddiv2"><b>È·ÈÏÃÜÂë£º</b>
+    <div id="regpwddiv2"><b>ç¡®è®¤å¯†ç ï¼š</b>
       <input id="regpwd2" name="regpwd2" type="password" />
-      <div id="pwddiv2">ÇëÊäÈëÈ·ÈÏÃÜÂë</div>
+      <div id="pwddiv2">è¯·è¾“å…¥ç¡®è®¤å¯†ç </div>
     </div>
-    <div id="regemaildiv"><b>µç×ÓÓÊÏä£º</b>
+    <div id="regemaildiv"><b>ç”µå­é‚®ç®±ï¼š</b>
       <input id="email" name="email" type="text" />
-      <div id="emaildiv">ÓÃ»§¼¤»îºÍÕÒ»ØÃÜÂëÊ¹ÓÃ</div>
+      <div id="emaildiv">ç”¨æˆ·æ¿€æ´»å’Œæ‰¾å›žå¯†ç ä½¿ç”¨</div>
     </div>
     <div id="morediv" style="display:none;">
       <hr id="part" />
-      <div id="regquestiondiv"><b>ÃÜ±£ÎÊÌâ£º</b>
+      <div id="regquestiondiv"><b>å¯†ä¿é—®é¢˜ï¼š</b>
         <input id="question" name="question" type="text" />
-        <div id="questiondiv">ÓÃ»§¼¤»îºÍÕÒ»ØÃÜÂëÊ¹ÓÃ</div>
+        <div id="questiondiv">ç”¨æˆ·æ¿€æ´»å’Œæ‰¾å›žå¯†ç ä½¿ç”¨</div>
       </div>
-      <div id="reganswerdiv"><b>ÃÜ±£´ð°¸£º</b>
+      <div id="reganswerdiv"><b>å¯†ä¿ç­”æ¡ˆï¼š</b>
         <input id="answer" name="answer" type="text" />
-        <div id="answerdiv">ÓÃ»§¼¤»îºÍÕÒ»ØÃÜÂëÊ¹ÓÃ</div>
+        <div id="answerdiv">ç”¨æˆ·æ¿€æ´»å’Œæ‰¾å›žå¯†ç ä½¿ç”¨</div>
       </div>
-      <div id="regrealnamediv"><b>ÕæÊµÐÕÃû£º</b>
+      <div id="regrealnamediv"><b>çœŸå®žå§“åï¼š</b>
         <input id="realname" name="realname" type="text" />
-        <div id="realnamediv">ÓÃ»§µÄÕæÊµÐÕÃû</div>
+        <div id="realnamediv">ç”¨æˆ·çš„çœŸå®žå§“å</div>
       </div>
-      <div id="regbirthdaydiv"><b>³öÉúÈÕÆÚ£º</b>
+      <div id="regbirthdaydiv"><b>å‡ºç”Ÿæ—¥æœŸï¼š</b>
         <input id="birthday" name="birthday" type="text" />
-        <div id="birthdaydiv">ÓÃ»§µÄ³öÉúÈÕÆÚ¡£¸ñÊ½£ºYYYY-MM-DD</div>
+        <div id="birthdaydiv">ç”¨æˆ·çš„å‡ºç”Ÿæ—¥æœŸã€‚æ ¼å¼ï¼šYYYY-MM-DD</div>
       </div>
-      <div id="regtelephonediv"><b>ÁªÏµµç»°£º</b>
+      <div id="regtelephonediv"><b>è”ç³»ç”µè¯ï¼š</b>
         <input id="telephone" name="telephone" type="text" />
-        <div id="telephonediv">ÓÃ»§µÄÁªÏµµç»°</div>
+        <div id="telephonediv">ç”¨æˆ·çš„è”ç³»ç”µè¯</div>
       </div>
-      <div id="regqqdiv"><b>QQºÅ Âë£º</b>
+      <div id="regqqdiv"><b>QQå· ç ï¼š</b>
         <input id="qq" name="qq" type="text" />
-        <div id="qqdiv">ÓÃ»§QQºÅ</div>
+        <div id="qqdiv">ç”¨æˆ·QQå·</div>
       </div>
     </div>
     <div id="btndiv2">

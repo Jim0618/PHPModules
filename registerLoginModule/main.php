@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>登录成功</title>
+<title>碌脟脗录鲁脡鹿娄</title>
 </head>
 <body>
-<?php echo '欢迎光临！'.$_SESSION['name']; ?>
+<?php echo '禄露脫颅鹿芒脕脵拢隆'.$_SESSION['name']; ?>
 </body>
 </html>
