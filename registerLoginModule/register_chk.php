@@ -1,40 +1,40 @@
 <?php
 	include_once 'conn/conn.php';
-	require_once 'Zend/Mail.php';						//µ÷ÓÃ·¢ËÍÓÊ¼şµÄÎÄ¼ş
-	require_once 'Zend/Mail/Transport/Smtp.php';		//µ÷ÓÃSMTPÑéÖ¤ÎÄ¼ş
+	require_once 'Zend/Mail.php';						//è°ƒç”¨å‘é€é‚®ä»¶çš„æ–‡ä»¶
+	require_once 'Zend/Mail/Transport/Smtp.php';		//è°ƒç”¨SMTPéªŒè¯æ–‡ä»¶
 	$reback = '0';
 	$url = 'http://'.$_SERVER['SERVER_NAME'].':82'.dirname($_SERVER['SCRIPT_NAME']).'/activation.php';
 	$url .= '?name='.trim($_GET['name']).'&pwd='.md5(trim($_GET['pwd']));
 	
-	//·¢ËÍ¼¤»îÓÊ¼ş
-	$subject="¼¤»îÂëµÄ»ñÈ¡";
-	$mailbody='×¢²á³É¹¦¡£ÄúµÄ¼¤»îÂëÊÇ£º'.'<a href="'.$url.'" target="_blank">'.$url.'</a><br>'.'Çëµã»÷¸ÃµØÖ·£¬¼¤»îÄúµÄÓÃ»§£¡';
-//¶¨ÒåÓÊ¼şÄÚÈİ
-	$envelope="mrsoft@mrsoft.com";		//¶¨ÒåµÇÂ¼Ê¹ÓÃµÄÓÊÏä
+	//å‘é€æ¿€æ´»é‚®ä»¶
+	$subject="æ¿€æ´»ç çš„è·å–";
+	$mailbody='æ³¨å†ŒæˆåŠŸã€‚æ‚¨çš„æ¿€æ´»ç æ˜¯ï¼š'.'<a href="'.$url.'" target="_blank">'.$url.'</a><br>'.'è¯·ç‚¹å‡»è¯¥åœ°å€ï¼Œæ¿€æ´»æ‚¨çš„ç”¨æˆ·ï¼';
+//å®šä¹‰é‚®ä»¶å†…å®¹
+	$envelope="mrsoft@mrsoft.com";		//å®šä¹‰ç™»å½•ä½¿ç”¨çš„é‚®ç®±
 	
-	/*   smtp²âÊÔ°æ·¢ËÍÓÊ¼ş·½Ê½£¬Ê¹ÓÃsmtp×÷Îª·şÎñÆ÷
+	/*   smtpæµ‹è¯•ç‰ˆå‘é€é‚®ä»¶æ–¹å¼ï¼Œä½¿ç”¨smtpä½œä¸ºæœåŠ¡å™¨
 				$tr = new Zend_Mail_Transport_Smtp('localhost');
 				$mail = new Zend_Mail();				
-				$mail->addTo('cym3100@163.com','»ñÈ¡ÓÃ»§×¢²á¼¤»îÂë');
-				$mail->setFrom('cym3100@163.com','Ã÷ÈÕ¿Æ¼¼µäĞÍÄ£¿é³ÌĞò²âÊÔÓÊÏä£¬¹§Ï²ÄúÓÃ»§×¢²á³É¹¦£¡');
-				$mail->setSubject('»ñÈ¡×¢²áÓÃ»§µÄ¼¤»îÂë');
+				$mail->addTo('cym3100@163.com','è·å–ç”¨æˆ·æ³¨å†Œæ¿€æ´»ç ');
+				$mail->setFrom('cym3100@163.com','æ˜æ—¥ç§‘æŠ€å…¸å‹æ¨¡å—ç¨‹åºæµ‹è¯•é‚®ç®±ï¼Œæ­å–œæ‚¨ç”¨æˆ·æ³¨å†ŒæˆåŠŸï¼');
+				$mail->setSubject('è·å–æ³¨å†Œç”¨æˆ·çš„æ¿€æ´»ç ');
 				$mail->setBodyHtml($mailbody);
 				$mail->send($tr);
 	*/
-/*   ÍøÂç°æ·¢ËÍÓÊ¼ş·½·¨  */
+/*   ç½‘ç»œç‰ˆå‘é€é‚®ä»¶æ–¹æ³•  */
 
 	$config = array('auth' => 'login',
             'username' => 'mrsoft@mrsoft.com',
-            'password' => 'mingri');				//¶¨ÒåSMTPµÄÑéÖ¤²ÎÊı
-	$transport = new Zend_Mail_Transport_Smtp('localhost', $config);		//ÊµÀı»¯ÑéÖ¤µÄ¶ÔÏó
-	$mail = new Zend_Mail('GBK');			//ÊµÀı»¯·¢ËÍÓÊ¼ş¶ÔÏó
-    $mail->setBodyHtml($mailbody);				//·¢ËÍÓÊ¼şÖ÷Ìå
-    $mail->setFrom($envelope, 'Ã÷ÈÕ¿Æ¼¼µäĞÍÄ£¿é³ÌĞò²âÊÔÓÊÏä£¬¹§Ï²ÄúÓÃ»§×¢²á³É¹¦£¡');	//¶¨ÒåÓÊ¼ş·¢ËÍÊ¹ÓÃµÄÓÊÏä
-    $mail->addTo($_GET['email'], '»ñÈ¡ÓÃ»§×¢²á¼¤»îÂë');		//¶¨ÒåÓÊ¼şµÄ½ÓÊÕÓÊÏä
-    $mail->setSubject('»ñÈ¡×¢²áÓÃ»§µÄ¼¤»îÂë');				//¶¨ÒåÓÊ¼şÖ÷Ìâ
-    $mail->send($transport);								//Ö´ĞĞ·¢ËÍ²Ù×÷
+            'password' => 'mingri');				//å®šä¹‰SMTPçš„éªŒè¯å‚æ•°
+	$transport = new Zend_Mail_Transport_Smtp('localhost', $config);		//å®ä¾‹åŒ–éªŒè¯çš„å¯¹è±¡
+	$mail = new Zend_Mail('GBK');			//å®ä¾‹åŒ–å‘é€é‚®ä»¶å¯¹è±¡
+    $mail->setBodyHtml($mailbody);				//å‘é€é‚®ä»¶ä¸»ä½“
+    $mail->setFrom($envelope, 'æ˜æ—¥ç§‘æŠ€å…¸å‹æ¨¡å—ç¨‹åºæµ‹è¯•é‚®ç®±ï¼Œæ­å–œæ‚¨ç”¨æˆ·æ³¨å†ŒæˆåŠŸï¼');	//å®šä¹‰é‚®ä»¶å‘é€ä½¿ç”¨çš„é‚®ç®±
+    $mail->addTo($_GET['email'], 'è·å–ç”¨æˆ·æ³¨å†Œæ¿€æ´»ç ');		//å®šä¹‰é‚®ä»¶çš„æ¥æ”¶é‚®ç®±
+    $mail->setSubject('è·å–æ³¨å†Œç”¨æˆ·çš„æ¿€æ´»ç ');				//å®šä¹‰é‚®ä»¶ä¸»é¢˜
+    $mail->send($transport);								//æ‰§è¡Œå‘é€æ“ä½œ
 	
-/*   ÍøÂç°æ·¢ËÍÓÊ¼ş·½·¨  */	
+/*   ç½‘ç»œç‰ˆå‘é€é‚®ä»¶æ–¹æ³•  */	
 
 	$sql = "insert into tb_member(name,password,question,answer,email,realname,birthday,telephone,qq) values('".trim($_GET['name'])."','".md5(trim($_GET['pwd']))."','".$_GET['question']."','".$_GET['answer']."','".$_GET['email']."','".$_GET['realname']."','".$_GET['birthday']."','".$_GET['telephone']."','".$_GET['qq']."')";
 		$num = $conne->uidRst($sql);
