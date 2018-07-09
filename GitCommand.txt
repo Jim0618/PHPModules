@@ -78,6 +78,12 @@ Git不但会把本地的master分支内容推送的远程新的master分支，
 把本地库的内容推送到远程(实际上是把当前分支master推送到远程):
 git push origin master
 
+修改远程库：
+先删除远程库：
+git remote rm <remore library addr, default origin>
+再添加远程库：
+git remote add ...见上
+
 克隆远程库到本地：
  git clone git@github.com:yourname/yourrepository.git
 
