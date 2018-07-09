@@ -36,7 +36,7 @@ require_once 'Zend/Pdf/Cmap.php';
  * 
  * A CIDFont program contains glyph descriptions that are accessed using a CID as
  * the character selector. There are two types of CIDFont. A Type 0 CIDFont contains
- * glyph descriptions based on Adobe’s Type 1 font format, whereas those in a
+ * glyph descriptions based on Adobeâ€™s Type 1 font format, whereas those in a
  * Type 2 CIDFont are based on the TrueType font format.
  *
  * A CIDFont dictionary is a PDF object that contains information about a CIDFont program. 

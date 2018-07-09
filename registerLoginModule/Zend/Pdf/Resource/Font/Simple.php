@@ -37,7 +37,7 @@ require_once 'Zend/Pdf/Cmap.php';
  * Both fonts have the following properties:
  * - Glyphs in the font are selected by single-byte character codes obtained from a
  *   string that is shown by the text-showing operators. Logically, these codes index
- *   into a table of 256 glyphs; the mapping from codes to glyphs is called the font’s
+ *   into a table of 256 glyphs; the mapping from codes to glyphs is called the fontâ€™s
  *   encoding.
  *   PDF specification provides a possibility to specify any user defined encoding in addition
  *   to the standard built-in encodings: Standard-Encoding, MacRomanEncoding, WinAnsiEncoding, 

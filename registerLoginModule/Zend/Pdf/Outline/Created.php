@@ -53,7 +53,7 @@ class Zend_Pdf_Outline_Created extends Zend_Pdf_Outline
     protected $_title;
 
     /**
-     * Color to be used for the outline entry’s text.
+     * Color to be used for the outline entryâ€™s text.
 
      * It uses the DeviceRGB color space for color representation.
      * Null means default value - black ([0.0 0.0 0.0] in RGB representation).

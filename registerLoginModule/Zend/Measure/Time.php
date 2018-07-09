@@ -96,7 +96,7 @@ class Zend_Measure_Time extends Zend_Measure_Abstract
         'KILOSECOND'        => array('1000', 'ks'),
         'LEAPYEAR'          => array('31622400', 'year'),
         'MEGASECOND'        => array('1000000', 'Ms'),
-        'MICROSECOND'       => array('0.000001', 'µs'),
+        'MICROSECOND'       => array('0.000001', 'Âµs'),
         'MILLENIUM'         => array('31536000000', 'millenium'),
         'MILLISECOND'       => array('0.001', 'ms'),
         'MINUTE'            => array('60', 'min'),

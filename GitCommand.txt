@@ -221,3 +221,6 @@ vi config
 cd <HOME>
 vi .gitconfig
 
+在远程库和本地创建版本库后，两者是有分歧的，故本地需要先：
+git pull --allow-unrelated-histories
+这样子拉取远程库内容

@@ -87,7 +87,7 @@ class Zend_Measure_Current extends Zend_Measure_Abstract
         'HECTOAMPERE'          => array('100',          'hA'),
         'KILOAMPERE'           => array('1000',         'kA'),
         'MEGAAMPERE'           => array('1000000',      'MA') ,
-        'MICROAMPERE'          => array('0.000001',     'µA'),
+        'MICROAMPERE'          => array('0.000001',     'ÂµA'),
         'MILLIAMPERE'          => array('0.001',        'mA'),
         'NANOAMPERE'           => array('1.0e-9',       'nA'),
         'PICOAMPERE'           => array('1.0e-12',      'pA'),
